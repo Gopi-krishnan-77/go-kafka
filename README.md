@@ -53,3 +53,9 @@ A tiny event-driven app for logging weekend activities and processing them async
 make tidy
 make test
 ```
+
+## Offline-friendly dependency setup
+
+This repository pins `github.com/segmentio/kafka-go` in `go.mod` and maps it to a local compatibility module via `replace` so `go test ./...` works in restricted environments without network access.
+
+If you want to use the real upstream client, remove the `replace` directive and run `go mod tidy` in a network-enabled environment.
